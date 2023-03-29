@@ -19,29 +19,33 @@ execute:
 ---
 
 ```{r setup}
+#| echo: false
 library(tidyverse)
 ```
 
 ## Course Info
-### IS 6491: Data Visualization
+### IS 6850: Advanced SQL
 _Instructor:_ Jeremy Morris   
-_Office:_ SFEBB 4177 (shared space)  
+_Office:_ SFEBB 4177  
 _Email:_ jeremy.morris@eccles.utah.edu  
 _Phone:_ 801-573-3265  
 _Office Hours:_ 4:30-5:30 Mondays  
 
 Start Date: April 3, 2023  
-Classroom: SFEBB 3180
+Classroom: GARFF 2335 (CRCC 105 on May 1st)
 
 #### TA Information
-There is no TA this semester  
+*Teaching Assistant:* Aniket Pakhale  
+*Email:* [aniket.pakhale@utah.edu](mailto:aniket.pakhale@utah.edu){.email}  
 
 This syllabus is subject to change. Please come back and review occasionally to see changes.
 
 ### Required Textbook
-http://www.amazon.com/Storytelling-Data-Visualization-Business-Professionals/dp/1119002257  
+Readings will be published in Canvas Modules
 
 #### Optional Textbooks
+[Google BigQuery: The Definitive Guide](https://www.oreilly.com/library/view/google-bigquery-the/9781492044451/)  
+Click "login" and enter your email address as <student number>@utah.edu, you will be taken to a login page to get access.  
 
 ### Canvas  
 All other course materials are available on Canvas.
@@ -60,13 +64,24 @@ Upon successful completion of this course, students should be able to:
 	* Non-equi Joins
 * we will also cover a handful of integrations and discuss when and where to perform data manipulations
 
-## Assignments
-
 ### Labs
+
+There will be four labs (one each week).
 
 ### Final Project
 
-# SCHEDULE
+There will be a final project. The goal of this project is to use all material in the course plus some integrations and data visualization.
+
+# Course Schedule
+```{r schedule}
+#| echo: false
+#| message: false
+schedule <- readxl::read_excel('Schedule.xlsx') |>
+    rename(`Week of`=dt)
+options(knitr.kable.NA = '')
+kableExtra::kbl(schedule) |>
+	kableExtra::kable_styling(bootstrap_options=c('striped'))
+```
 
 ### Grading
 
@@ -75,9 +90,8 @@ Points will be assigned based on the following:
 ```{r grading,echo=F}
 point_allocation <- tribble(
     ~Item,~Points,
-    'Labs',30,
-    'Quizzes',30,
-    'Exam',40
+    'Labs',75,
+    'Final Project',25
 )
 knitr::kable(point_allocation) %>% 
     kableExtra::kable_styling(c('striped'),full_width = F,position='left') %>% 
